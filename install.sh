@@ -1,4 +1,5 @@
 #!/bin/bash
+password = $1
 
 # install yay for package management
 cd /home/mahi/Documents
@@ -45,3 +46,8 @@ Host qp.github.com
 flatpak install io.github.vikdevelop.SaveDesktop 
 
 # add smaba
+echo "/dev/nvme0n1p3 /mnt/Base auto defaults,nofail 0 0
+//192.168.0.103/groot /mnt/Groot cifs username=mahi,password=$password,nofail 0 0
+//192.168.0.103/mahi160 /mnt/Mahi160 cifs username=mahi,password=$password,nofail 0 0" >> /etc/fstab
+
+echo "Color" >> /etc/pacman.conf
