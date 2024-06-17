@@ -43,3 +43,5 @@ Host qp.github.com
 
 # install save desktop
 flatpak install io.github.vikdevelop.SaveDesktop 
+
+# add smaba
