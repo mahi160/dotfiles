@@ -19,6 +19,8 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 # setup dotfiles
 cd /home/mahi/Documents/dotfiles
+git checkout main
+rm ~/.zshrc
 stow nvim zsh starship -t ~/
 
 # create ssh key
