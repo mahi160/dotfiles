@@ -12,7 +12,7 @@ makepkg -si
 yay -Sy --noconfirm adw-gtk3 brave-bin exa bat kora-icon-theme timeshift timeshift-autosnap github-cli zsh ttf-jetbrains-mono-nerd htop git neovim docker docker-compose stow flameshot onefetch neofetch 
 
 # install cli
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 curl -fsSL https://fnm.vercel.app/install | bash
 curl -sS https://starship.rs/install.sh | sh
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -51,3 +51,5 @@ echo "/dev/nvme0n1p3 /mnt/Base auto defaults,nofail 0 0
 //192.168.0.103/mahi160 /mnt/Mahi160 cifs username=mahi,password=$password,nofail 0 0" >> /etc/fstab
 
 echo "Color" >> /etc/pacman.conf
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
