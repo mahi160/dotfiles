@@ -9,7 +9,7 @@ cd yay
 makepkg -si
 
 # install packages
-yay -Sy --noconfirm adw-gtk3 brave-bin exa bat kora-icon-theme timeshift timeshift-autosnap github-cli zsh ttf-jetbrains-mono-nerd htop git neovim docker docker-compose stow flameshot onefetch neofetch 
+yay -Sy --noconfirm adw-gtk3 brave-bin exa bat kora-icon-theme timeshift timeshift-autosnap github-cli zsh ttf-jetbrains-mono-nerd htop git neovim docker docker-compose stow flameshot onefetch neofetch fzf
 
 # install cli
 
