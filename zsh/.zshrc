@@ -8,14 +8,12 @@ source $ZSH/oh-my-zsh.sh
 alias zc="nvim ~/.zshrc"
 alias zs="source ~/.zshrc"
 alias ls="exa"
-alias code="code-insiders"
-
 # starship
 eval "$(starship init zsh)"
 
 # fnm
 export PATH="/home/mahi/.local/share/fnm:$PATH"
-eval "`fnm env`"
+eval "$(fnm env)"
 
 # fzf search
 source <(fzf --zsh)
@@ -25,3 +23,10 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
+setopt sharehistory
+setopt incappendhistory
+setopt extendedhistory
+setopt histignorealldups
+setopt histignorespace
+setopt histignoredups
+setopt histreduceblanks
