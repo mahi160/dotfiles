@@ -9,6 +9,8 @@ source $ZSH/oh-my-zsh.sh
 alias zc="nvim ~/.zshrc"
 alias zs="source ~/.zshrc"
 alias ls="exa"
+alias ll="exa -la"
+alias ts="tmux source ~/.tmux.conf"
 # starship
 eval "$(starship init zsh)"
 

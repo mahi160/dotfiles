@@ -18,12 +18,13 @@ curl -sS https://starship.rs/install.sh | sh
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # setup dotfiles
 cd /home/mahi/Documents/dotfiles
 git checkout main
 rm ~/.zshrc
-stow nvim zsh starship -t ~/
+stow nvim zsh starship alacritty tmux -t ~/
 
 # create ssh key
 ssh-keygen -t ed25519 -C "mahi@workstation" -f ~/.ssh/id_ed25519
