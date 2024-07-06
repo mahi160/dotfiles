@@ -17,6 +17,7 @@ curl -fsSL https://fnm.vercel.app/install | bash
 curl -sS https://starship.rs/install.sh | sh
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
 
 # setup dotfiles
 cd /home/mahi/Documents/dotfiles
@@ -40,16 +41,16 @@ Host qp.github.com
   HostName github.com
   User git
   IdentityFile ~/.ssh/qp_ed25519
-" >> ~/.ssh/config
+" >>~/.ssh/config
 
 # install save desktop
-flatpak install io.github.vikdevelop.SaveDesktop 
+flatpak install io.github.vikdevelop.SaveDesktop
 
 # add smaba
 echo "/dev/nvme0n1p3 /mnt/Base auto defaults,nofail 0 0
 //192.168.0.103/groot /mnt/Groot cifs username=mahi,password=$password,nofail 0 0
-//192.168.0.103/mahi160 /mnt/Mahi160 cifs username=mahi,password=$password,nofail 0 0" >> /etc/fstab
+//192.168.0.103/mahi160 /mnt/Mahi160 cifs username=mahi,password=$password,nofail 0 0" >>/etc/fstab
 
-echo "Color" >> /etc/pacman.conf
+echo "Color" >>/etc/pacman.conf
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
