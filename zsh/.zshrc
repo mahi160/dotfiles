@@ -10,7 +10,8 @@ alias zc="nvim ~/.zshrc"
 alias zs="source ~/.zshrc"
 alias ls="exa"
 alias ll="exa -la"
-alias ts="tmux source ~/.tmux.conf"
+alias ts="tmux source ~/.config/tmux/tmux.conf"
+alias ac="nvim ~/.config/alacritty/alacritty.toml"
 # starship
 eval "$(starship init zsh)"
 
