@@ -1,5 +1,83 @@
-version: "3.5"
+version: "3.1"
 services:
+  duplicati:
+    image: lscr.io/linuxserver/duplicati:latest
+    container_name: duplicati
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=Asia/Dhaka
+    volumes:
+      - ${config}/Duplicati/config:/config
+      - ${groot}:/groot
+      - ${rocket}:/rocket
+      - ${mahi160}:/mahi160
+      - /:/system
+    ports:
+      - 8200:8200
+    restart: unless-stopped
+
+  watchtower:
+    container_name: watchtower
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  flaresolverr:
+    container_name: flaresolverr
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    ports:
+      - 8191:8191
+    restart: unless-stopped
+
+  adguard:
+    container_name: adguard
+    image: adguard/adguardhome
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "67:67/udp"
+
+      - "8088:80/tcp"
+      - "3001:3000/tcp"
+    environment:
+      - TZ='Asia/Dhaka'
+      - WEBPASSWORD=${pass}
+    volumes:
+      - ${config}/Adguardhome/work:/opt/adguardhome/work
+      - ${config}/Adguardhome/conf:/opt/adguardhome/conf
+    restart: unless-stopped
+
+  # pihole:
+  #   container_name: pihole
+  #   image: pihole/pihole:latest
+  #   ports:
+  #     - "53:53/tcp"
+  #     - "53:53/udp"
+  #     - "90:80/tcp"
+  #   environment:
+  #     TZ: 'Asia/Dhaka'
+  #     WEBPASSWORD: ${pass}
+  #   dns:
+  #     - 127.0.0.1
+  #     - 8.8.8.8
+  #   volumes:
+  #     - ${config}/Pihole/config:/etc/pihole
+  #     - ${config}/Pihole/dnsmasq.d:/etc/dnsmasq.d
+  #   restart: unless-stopped
+
+  # homarr:
+  #   container_name: homarr
+  #   image: ghcr.io/ajnart/homarr:latest
+  #   restart: unless-stopped
+  #   volumes:
+  #     - ${config}/Homarr/config:/app/data/configs
+  #     - ${config}/Homarr/icons:/app/public/icons
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #   ports:
+  #     - '7575:7575'
+
+  # Media
   jellyfin:
     image: jellyfin/jellyfin:latest
     container_name: jellyfin
@@ -68,8 +146,8 @@ services:
       - TZ=Asia/Dhaka
     volumes:
       - ${config}/Bazarr/config:/config
-      - ${movies}:/movies
-      - ${series}:/tv
+      - ${movies}:/movies #optional
+      - ${series}:/tv #optional
       - ${new}:/new
     ports:
       - 6767:6767
@@ -82,8 +160,8 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Asia/Dhaka
-      - DOCKER_MODS=linuxserver/mods:universal-calibre
-      - OAUTHLIB_RELAX_TOKEN_SCOPE=1
+      - DOCKER_MODS=linuxserver/mods:universal-calibre #optional
+      - OAUTHLIB_RELAX_TOKEN_SCOPE=1 #optional
     volumes:
       - ${config}/Calibre-Web/config:/config
       - ${books}:/books
@@ -95,7 +173,7 @@ services:
     image: lscr.io/linuxserver/calibre:latest
     container_name: calibre
     security_opt:
-      - seccomp:unconfined
+      - seccomp:unconfined #optional
     environment:
       - PUID=1000
       - PGID=1000
@@ -147,7 +225,7 @@ services:
       - TZ=Asia/Dhaka
     volumes:
       - ${config}/Sonarr/config:/config
-      - ${series}:/tv
+      - ${series}:/tv #optional
       - ${new}:/new
       - ${downloads}:/downloads
     ports:
@@ -163,8 +241,8 @@ services:
   #     - TZ=Asia/Dhaka
   #   volumes:
   #     - ${config}/Lidarr/config:/config
-  #     - ${music}:/music
-  #     - ${downloads}:/downloads
+  #     - ${music}:/music #optional
+  #     - ${downloads}:/downloads #optional
   #   ports:
   #     - 8686:8686
   #   restart: unless-stopped
