@@ -9,9 +9,9 @@ services:
       - TZ=Asia/Dhaka
     volumes:
       - ${config}/Duplicati/config:/config
-      - ${groot}:/groot
-      - ${rocket}:/rocket
-      - ${mahi160}:/mahi160
+      - ${disk0}:/groot
+      - ${disk1}:/rocket
+      - ${disk2}:/mahi160
       - /:/system
     ports:
       - 8200:8200
