@@ -17,10 +17,10 @@ sudo pacman -Sy --needed git base-devel
 git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 ```
 
-- Install _zsh_, _neovim_, _stow_
+- Install _zsh_, _neovim_, _stow_, _fzf_, _alacritty_, _tmux_
 
 ```sh
-yay -S zsh neovim stow
+yay -S zsh neovim stow fzf alacritty tmux
 ```
 
 - Add oh-my-zsh
