@@ -47,8 +47,8 @@ curl -fsSL https://fnm.vercel.app/install | bash
 - Make dotfiles active
   - Clone this repo `git clone https://github.com/mahi160/dotfiles.git`
   - Go to _dotfiles_ folder: `cd dotfiles`
-  - Run `stow zsh starship nvim -t ~/`
-  - If it fails, make sure to run `rm ~/.zshrc`. This will remove the old zsh config.
+  - Clear all current dotfiles: `rm ~/.zshrc ~/.config/alacritty ~/.config/nvim ~/.config/starship.toml ~/.config/tmux`
+  - Run `stow zsh starship nvim alacritty tmux -t ~/`
   - Restart terminal: `source ~/.zshrc`
 
 ## Server
