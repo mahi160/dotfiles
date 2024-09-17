@@ -10,6 +10,7 @@ alias zc="nvim ~/.zshrc"
 alias zs="source ~/.zshrc"
 alias ls="exa"
 alias ll="exa -la"
+alias ac="nvim ~/.config/alacritty/alacritty.toml"
 # starship
 eval "$(starship init zsh)"
 # fnm
